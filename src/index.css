@@ -1,13 +1,66 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.boxsw:hover img{
+scale: 1.2;
+transition: ease-in 0.2s;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.boxsw{
+
+    transition: ease-in 0.2s;
+
+
+    }
+
+    .boxsw img{
+
+        transition: ease-in 0.2s;
+
+
+        }
+
+.boxsw:hover{
+
+    transition: ease-in 0.1s;
+    transform: translateY(-5px);
+    cursor: pointer;
+    }
+
+    .boxsw:hover p{
+
+        font-weight: 500;
+        }
+
+
+.contain{
+    @apply max-w-5xl mx-auto
+}
+
+.box{
+    background: url('./assets/29526_thumbnail.jpg') no-repeat  ;
+    width: 100%;
+    height: 200px;
+    border: 1px solid black;
+    background-size: cover;
+}
+
+.join{
+background: linear-gradient(to bottom,#ffea32,#ffbe5f 100%);;
+z-index: 10000 !important;
+box-shadow: 0 5px 18px -8px rgb(0 0 0 / 80%);
+}
+
+.footer{
+    background: #081927;
+    background: linear-gradient(to bottom,#0b253b,#081928 72%);
+    color:rgb(233, 233, 233);
+
+    z-index: 1 !important;
+}
+
+.lang:hover img{
+    transition: ease-in-out 0.3s;
+    transform: scale(1.1);
 }
