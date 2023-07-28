@@ -5,5 +5,6 @@ export {default as JoinUs} from "./JoinUs";
 export {default as LastOfffers} from "./LastOfffers";
 export {default as MeilleurOffres} from "./MeilleurOffres";
 export {default as Footer} from "./Footer";
+export {default as Layout} from './Layout'
 
 
