@@ -20,9 +20,9 @@ setAcctive(false)
   }
 
   return (
-    <div className='flex  flex-col md:flex-row gap-3 bg-white p-6 max-w-5xl md:mx-auto shadow-2xl mx-6 -mt-14'>
+    <div className='flex  flex-col md:flex-row gap-3 md:bg-white  p-6 max-w-5xl md:mx-auto md:shadow-2xl mx-1 -mt-[150px] md:-mt-14'>
       <div className="input-group flex-1 flex flex-col ">
-        <label className='font-bold text-sm hidden md:block' htmlFor="search">Que Recherchez-vous?</label>
+        <label className='font-bold text-sm text-center md:text-left py-4 md:py-0' htmlFor="search">Que Recherchez-vous?</label>
         <div className="relative flex items-center ">
         <AiOutlineSearch className='absolute ml-2'/>
         <input type="text" className='border pl-7 p-2 w-full' placeholder='Que Recherchez-vous?' id='search' name='search'/>

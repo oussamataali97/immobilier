@@ -10,9 +10,9 @@ import image3 from '../assets/29532_thumbnail.jpg'
 import image4 from '../assets/29533_thumbnail.jpg'
 const LastOfffers = () => {
   return (
-    <div className='contain px-6 mt-16'>
+    <div className='contain px-6 md:mt-16'>
     <p className='text-2xl font-bold py-5'>Les dernieres offres immobilières au Maroc</p>
-    <div className="grid  md:grid-cols-3 grid-cols-2 lg:grid-cols-4 gap-5">
+    <div className="grid  md:grid-cols-3 grid-cols-2 lg:grid-cols-4 gap-2">
 
     <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image1} alt="" />
@@ -20,10 +20,10 @@ const LastOfffers = () => {
         <li className='  text-xl font-bold '>70920 dh</li>
         <li className=' break-words overflow-hidden w-full text-ellipsis whitespace-nowrap text-sm'>PENTHOUSE 425 m2 dans Résidence surveillée</li>
       </ul>
-      <ul className=' p-2 mb-2 flex justify-between items-center'>
+      <ul className=' p-2 mb-2 md:flex justify-between items-center hidden'>
         <li className='border-r-[1px] pr-3 text-gray-600 text-xs'>Bon Etat</li>
         <li className='text-gray-600 text-xs'>3 jours</li>
-        <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
+        <li className='bg-orange-400 md:px-4  rounded-md text-white font-semibold   py-1'>Contact</li>
       </ul>
     </div>
     <div className="flex flex-col justify-between border lg:min-w-[250px] ">
@@ -32,10 +32,10 @@ const LastOfffers = () => {
         <li className='  text-xl font-bold '>70920 dh</li>
         <li className=' break-words overflow-hidden w-full text-ellipsis whitespace-nowrap text-sm'>PENTHOUSE 425 m2 dans Résidence surveillée</li>
       </ul>
-      <ul className=' p-2 mb-2 flex justify-between items-center'>
+      <ul className=' p-2 mb-2 md:flex justify-between items-center hidden'>
         <li className='border-r-[1px] pr-3 text-gray-600 text-xs'>Bon Etat</li>
         <li className='text-gray-600 text-xs'>3 jours</li>
-        <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
+        <li className='bg-orange-400 md:px-4  rounded-md text-white font-semibold   py-1'>Contact</li>
       </ul>
     </div>    <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image3} alt="" />
@@ -43,10 +43,10 @@ const LastOfffers = () => {
         <li className='  text-xl font-bold '>70920 dh</li>
         <li className=' break-words overflow-hidden w-full text-ellipsis whitespace-nowrap text-sm'>PENTHOUSE 425 m2 dans Résidence surveillée</li>
       </ul>
-      <ul className=' p-2 mb-2 flex justify-between items-center'>
+      <ul className=' p-2 mb-2 md:flex justify-between items-center hidden'>
         <li className='border-r-[1px] pr-3 text-gray-600 text-xs'>Bon Etat</li>
         <li className='text-gray-600 text-xs'>3 jours</li>
-        <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
+        <li className='bg-orange-400 md:px-4  rounded-md text-white font-semibold   py-1'>Contact</li>
       </ul>
     </div>    <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image4} alt="" />
@@ -54,10 +54,10 @@ const LastOfffers = () => {
         <li className='  text-xl font-bold '>70920 dh</li>
         <li className=' break-words overflow-hidden w-full text-ellipsis whitespace-nowrap text-sm'>PENTHOUSE 425 m2 dans Résidence surveillée</li>
       </ul>
-      <ul className=' p-2 mb-2 flex justify-between items-center'>
+      <ul className=' p-2 mb-2 md:flex justify-between items-center hidden'>
         <li className='border-r-[1px] pr-3 text-gray-600 text-xs'>Bon Etat</li>
         <li className='text-gray-600 text-xs'>3 jours</li>
-        <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
+        <li className='bg-orange-400 md:px-4  rounded-md text-white font-semibold   py-1'>Contact</li>
       </ul>
     </div>    <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image} alt="" />
@@ -65,10 +65,10 @@ const LastOfffers = () => {
         <li className='  text-xl font-bold '>70920 dh</li>
         <li className=' break-words overflow-hidden w-full text-ellipsis whitespace-nowrap text-sm'>PENTHOUSE 425 m2 dans Résidence surveillée</li>
       </ul>
-      <ul className=' p-2 mb-2 flex justify-between items-center'>
+      <ul className=' p-2 mb-2 md:flex justify-between items-center hidden'>
         <li className='border-r-[1px] pr-3 text-gray-600 text-xs'>Bon Etat</li>
         <li className='text-gray-600 text-xs'>3 jours</li>
-        <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
+        <li className='bg-orange-400 md:px-4  rounded-md text-white font-semibold   py-1'>Contact</li>
       </ul>
     </div>    <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image2} alt="" />
@@ -76,10 +76,10 @@ const LastOfffers = () => {
         <li className='  text-xl font-bold '>70920 dh</li>
         <li className=' break-words overflow-hidden w-full text-ellipsis whitespace-nowrap text-sm'>PENTHOUSE 425 m2 dans Résidence surveillée</li>
       </ul>
-      <ul className=' p-2 mb-2 flex justify-between items-center'>
+      <ul className=' p-2 mb-2 md:flex justify-between items-center hidden'>
         <li className='border-r-[1px] pr-3 text-gray-600 text-xs'>Bon Etat</li>
         <li className='text-gray-600 text-xs'>3 jours</li>
-        <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
+        <li className='bg-orange-400 md:px-4  rounded-md text-white font-semibold   py-1'>Contact</li>
       </ul>
     </div>    <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image3} alt="" />
@@ -87,10 +87,10 @@ const LastOfffers = () => {
         <li className='  text-xl font-bold '>70920 dh</li>
         <li className=' break-words overflow-hidden w-full text-ellipsis whitespace-nowrap text-sm'>PENTHOUSE 425 m2 dans Résidence surveillée</li>
       </ul>
-      <ul className=' p-2 mb-2 flex justify-between items-center'>
+      <ul className=' p-2 mb-2 md:flex justify-between items-center hidden'>
         <li className='border-r-[1px] pr-3 text-gray-600 text-xs'>Bon Etat</li>
         <li className='text-gray-600 text-xs'>3 jours</li>
-        <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
+        <li className='bg-orange-400 md:px-4  rounded-md text-white font-semibold   py-1'>Contact</li>
       </ul>
     </div>    <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image} alt="" />
@@ -98,10 +98,10 @@ const LastOfffers = () => {
         <li className='  text-xl font-bold '>70920 dh</li>
         <li className=' break-words overflow-hidden w-full text-ellipsis whitespace-nowrap text-sm'>PENTHOUSE 425 m2 dans Résidence surveillée</li>
       </ul>
-      <ul className=' p-2 mb-2 flex justify-between items-center'>
+      <ul className=' p-2 mb-2 md:flex justify-between items-center hidden'>
         <li className='border-r-[1px] pr-3 text-gray-600 text-xs'>Bon Etat</li>
         <li className='text-gray-600 text-xs'>3 jours</li>
-        <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
+        <li className='bg-orange-400 md:px-4  rounded-md text-white font-semibold   py-1'>Contact</li>
       </ul>
     </div>
 
