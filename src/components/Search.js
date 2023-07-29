@@ -6,7 +6,7 @@ const Search = () => {
 
   const city =['Errissani','Tadighoust','Goulmim','Tileft','Tanger','Errachidia','Casa','Goulmima','Méknes','Tetouan','Mohamedia','Asfi','Tinghir','Fes','Marakech','Dakhla','Laayoun']
 
-  const [acctive,setAcctive]=useState(true)
+  const [acctive,setAcctive]=useState(false)
   const [cityy,setCity]=useState('')
 
   const handlefocus =()=>{
