@@ -20,9 +20,9 @@ setAcctive(false)
   }
 
   return (
-    <div className='flex gap-3 bg-white p-6 max-w-5xl mx-auto shadow-2xl -mt-14'>
+    <div className='flex  flex-col md:flex-row gap-3 bg-white p-6 max-w-5xl md:mx-auto shadow-2xl mx-6 -mt-14'>
       <div className="input-group flex-1 flex flex-col ">
-        <label className='font-bold text-sm' htmlFor="search">Que Recherchez-vous?</label>
+        <label className='font-bold text-sm hidden md:block' htmlFor="search">Que Recherchez-vous?</label>
         <div className="relative flex items-center ">
         <AiOutlineSearch className='absolute ml-2'/>
         <input type="text" className='border pl-7 p-2 w-full' placeholder='Que Recherchez-vous?' id='search' name='search'/>
@@ -30,7 +30,7 @@ setAcctive(false)
 
       </div>
       <div className="input-group flex-1 flex flex-col">
-        <label className='font-bold text-sm' htmlFor="Categories">Choisissez une catégorie</label>
+        <label className='font-bold text-sm hidden md:block' htmlFor="Categories">Choisissez une catégorie</label>
         <div className="relative flex items-center  ">
         <BiCategoryAlt className='absolute ml-2'/>
         <input type="text" className='border pl-7 p-2 w-full' placeholder='Maison & villa' id='search' name='search'/>
@@ -38,7 +38,7 @@ setAcctive(false)
         </div>
         </div>
       <div className="input-group flex-1 flex flex-col">
-        <label className='font-bold text-sm' htmlFor="Ville">Choisissez une ville</label>
+        <label className='font-bold text-sm hidden md:block' htmlFor="Ville">Choisissez une ville</label>
         <div className="relative flex items-center ">
         <MdOutlineLocationOn className='absolute ml-2'/>
         <input type="text"  className=' border pl-7 p-2 w-full focus:outline-none' onChange={(e)=>setCity(e.target.value)} value={cityy ? cityy : ''}  autoComplete="off"  onFocus={handlefocus}  placeholder='Tout le Maroc' id='search' name='search'/>
@@ -50,6 +50,8 @@ setAcctive(false)
         </div> }
         </div>
         </div>
+
+        <button className='block w-full bg-orange-400 text-white py-2 visible md:hidden'>Chercher</button>
 
 
     </div>

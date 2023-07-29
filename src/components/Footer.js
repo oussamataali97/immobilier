@@ -9,9 +9,9 @@ const Footer = () => {
     <div className=' footer pt-24'>
       <div className="contain divide-y divide-dashed divide-gray-700">
       <p className='text-center pb-10  pt-5 font-semibold text-xl'> Besoin d'aide:+212 06 53 53 02 53 | Email :info@snapimmo.ma </p>
-      <div className="grid grid-cols-3 gap-10  divide-dashed divide-gray-700 divide-x-[1px] py-8 ">
-        <div className="first">
-            <p className='font-semibold text-lg my-4'>Meilleures catégories </p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10  divide-dashed divide-gray-700 divide-x-[1px] py-8 ">
+        <div className="first px-3">
+            <p className='font-semibold text-lg my-4 '>Meilleures catégories </p>
             <ul className="grid grid-cols-2 text-xs leading-7">
               <ul>
                 <li>Appartement</li>
@@ -58,7 +58,7 @@ const Footer = () => {
         </div>
 </div>
 
-<div className="grid grid-cols-3 gap-10   py-8 ">
+<div className="grid grid-cols-1 md:grid-cols-3  gap-10   py-8 ">
 
 
         <div className="px-3 first divide-0">
@@ -109,7 +109,7 @@ const Footer = () => {
       </div>
 
       </div>
-      <div className=" contain pt-2 font-normal text-sm">
+      <div className="px-3 contain pt-2 font-normal text-sm">
           <p>Vous êtes à la recherche d'un bien immobilier Maroc ? Ne cherchez plus ! Bienvenue sur Snapimmo, la plateforme immobilière de référence dédiée au marché marocain. Nous sommes fiers de vous offrir un accès privilégié à une vaste sélection d'annonces immobilières dans tout le pays. Que vous cherchiez à acheter, louer ou investir, nous avons tout ce qu'il vous faut pour trouver votre foyer idéal au Royaume du Soleil. Notre mission est de faciliter votre parcours dans le secteur immobilier au Maroc. Grâce à notre interface conviviale, vous pouvez filtrer les annonces selon vos préférences spécifiques : type de bien, localisation, budget, et bien plus encore. Notre technologie avancée assure une expérience de recherche fluide et rapide, vous permettant de découvrir les meilleures opportunités en un rien de temps. Chez SnapImmo, nous comprenons que l'achat ou la location d'une propriété est une décision majeure. C'est pourquoi nous nous engageons à vous fournir des informations détaillées et des images de qualité pour chaque annonce, vous donnant ainsi une vision claire des biens qui vous intéressent. Notre plateforme est également un espace pour les professionnels de l'immobilier. Si vous êtes une agence immobilière ou un courtier au Maroc, nous vous invitons à rejoindre notre réseau de partenaires. Profitez de notre visibilité accrue et de notre vaste audience pour augmenter vos chances de conclure des affaires prospères. Chez Snapimmo, votre satisfaction est notre priorité. Nous nous efforçons de vous offrir une expérience utilisateur exceptionnelle, que ce soit sur notre site web ou notre application mobile. Restez connecté(e) avec les dernières annonces, les tendances du marché immobilier, et les actualités du secteur, directement depuis votre appareil. Alors, qu'attendez-vous ? Plongez dans le monde de l'immobilier au Maroc avec Snapimmo et trouvez votre perle rare. Notre équipe dévouée est prête à vous accompagner dans votre recherche et à vous fournir un service de qualité tout au long de votre parcours. Ne cherchez plus ailleurs, votre avenir immobilier commence ici sur Snapimmo, votre partenaire de confiance dans l'immobilier au Maroc. Commencez dès maintenant à explorer les opportunités qui vous attendent !
 </p>
         </div>

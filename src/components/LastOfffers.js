@@ -10,11 +10,11 @@ import image3 from '../assets/29532_thumbnail.jpg'
 import image4 from '../assets/29533_thumbnail.jpg'
 const LastOfffers = () => {
   return (
-    <div className='contain mt-16'>
+    <div className='contain px-6 mt-16'>
     <p className='text-2xl font-bold py-5'>Les dernieres offres immobilières au Maroc</p>
-  <div className="grid grid-cols-4 gap-5">
+    <div className="grid  md:grid-cols-3 grid-cols-2 lg:grid-cols-4 gap-5">
 
-    <div className="flex flex-col justify-between border min-w-[250px] ">
+    <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image1} alt="" />
       <ul className=' p-2 border-t-[1px] my-2'>
         <li className='  text-xl font-bold '>70920 dh</li>
@@ -26,7 +26,7 @@ const LastOfffers = () => {
         <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
       </ul>
     </div>
-    <div className="flex flex-col justify-between border min-w-[250px] ">
+    <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image} alt="" />
       <ul className=' p-2 border-t-[1px] my-2'>
         <li className='  text-xl font-bold '>70920 dh</li>
@@ -37,7 +37,7 @@ const LastOfffers = () => {
         <li className='text-gray-600 text-xs'>3 jours</li>
         <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
       </ul>
-    </div>    <div className="flex flex-col justify-between border min-w-[250px] ">
+    </div>    <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image3} alt="" />
       <ul className=' p-2 border-t-[1px] my-2'>
         <li className='  text-xl font-bold '>70920 dh</li>
@@ -48,7 +48,7 @@ const LastOfffers = () => {
         <li className='text-gray-600 text-xs'>3 jours</li>
         <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
       </ul>
-    </div>    <div className="flex flex-col justify-between border min-w-[250px] ">
+    </div>    <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image4} alt="" />
       <ul className=' p-2 border-t-[1px] my-2'>
         <li className='  text-xl font-bold '>70920 dh</li>
@@ -59,7 +59,7 @@ const LastOfffers = () => {
         <li className='text-gray-600 text-xs'>3 jours</li>
         <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
       </ul>
-    </div>    <div className="flex flex-col justify-between border min-w-[250px] ">
+    </div>    <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image} alt="" />
       <ul className=' p-2 border-t-[1px] my-2'>
         <li className='  text-xl font-bold '>70920 dh</li>
@@ -70,7 +70,7 @@ const LastOfffers = () => {
         <li className='text-gray-600 text-xs'>3 jours</li>
         <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
       </ul>
-    </div>    <div className="flex flex-col justify-between border min-w-[250px] ">
+    </div>    <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image2} alt="" />
       <ul className=' p-2 border-t-[1px] my-2'>
         <li className='  text-xl font-bold '>70920 dh</li>
@@ -81,7 +81,7 @@ const LastOfffers = () => {
         <li className='text-gray-600 text-xs'>3 jours</li>
         <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
       </ul>
-    </div>    <div className="flex flex-col justify-between border min-w-[250px] ">
+    </div>    <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image3} alt="" />
       <ul className=' p-2 border-t-[1px] my-2'>
         <li className='  text-xl font-bold '>70920 dh</li>
@@ -92,7 +92,7 @@ const LastOfffers = () => {
         <li className='text-gray-600 text-xs'>3 jours</li>
         <li className='bg-orange-400 px-4 rounded-md text-white font-semibold  py-1'>Contact</li>
       </ul>
-    </div>    <div className="flex flex-col justify-between border min-w-[250px] ">
+    </div>    <div className="flex flex-col justify-between border lg:min-w-[250px] ">
       <img src={image} alt="" />
       <ul className=' p-2 border-t-[1px] my-2'>
         <li className='  text-xl font-bold '>70920 dh</li>
