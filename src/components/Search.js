@@ -4,7 +4,7 @@ import {BiCategoryAlt} from 'react-icons/bi'
 import {MdOutlineLocationOn} from 'react-icons/md'
 const Search = () => {
 
-  const city =['Errissani','Tadighoust','Goulmim','Tileft','Tanger','Errachidia','Casa','Goulmima','Méknes','Tetouan','Mohamedia','Asfi','Tinghir','Fes','Marakech','Dakhla','Laayoun']
+  const city =['Errissani','Tadighoust','Goulmim','Tileft','Tanger','Errachidia','Casa','Goulmima','Méknes','Tetouan','Mohamedia','Asfi','Tinghir','Fes','Marakech','Dakhla','Laayoun','... et 60 autres ville, entrez votre nom ville pour affiner les résultats']
 
   const [acctive,setAcctive]=useState(false)
   const [cityy,setCity]=useState('')
@@ -45,11 +45,11 @@ const Search = () => {
         <MdOutlineLocationOn className='absolute ml-2'/>
         <input type="text"  className=' border pl-7 p-2 w-full focus:outline-none' onClick={()=>setAcctive(true)} onChange={(e)=>setCity(e.target.value)} value={cityy}  autoComplete="off"  placeholder='Tout le Maroc' id='search' name='search'/>
         { acctive && <div data-aos="fade-up"   data-aos-delay="1"
-    data-aos-duration="9000" className="  bg-white absolute top-10 w-full leading-9 divide-y-[1px] h-[14rem] overflow-auto">
-            {city.filter(e=>e.toLowerCase().startsWith(cityy.toLowerCase())
-).map((c,index)=>(
-              <p key={index} className='font-light text-md cursor-pointer px-2 hover:bg-gray-100' onClick={handleClck}>{c}</p>
-            ))}
+    data-aos-duration="9000" className="  bg-white absolute top-10 w-full leading-9 divide-y-[1px] max-h-[14rem] min-h-fit  overflow-auto">
+            { city.filter(e=>e.toLowerCase().startsWith(cityy.toLowerCase())
+).map((c,index)=> (
+              <p key={index} className='font-light text-md cursor-pointer px-2 hover:bg-gray-100' onClick={handleClck}>{c  }</p>
+             ) )}
         </div> }
         </div>
         </div>
