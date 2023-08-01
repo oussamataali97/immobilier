@@ -88,7 +88,7 @@ onClick={(e)=>setToggle(false)}
 >
   <div className="relative w-[800px] max-h-[400px] overflow-auto  my-6 mx-auto max-w-3xl" >
     <div className="border-0 rounded-lg shadow-lg relative flex flex-row w-full bg-white outline-none focus:outline-none">
-        <div className="w-[250px] overflow-y-hidden sticky top-0 bottom-0 max-h-[400px]   bg-gray-100  p-3 flex flex-col justify-between ">
+        <div className="hidden w-[250px] overflow-y-hidden sticky top-0 bottom-0 max-h-[400px]   bg-gray-100  p-3 md:flex flex-col justify-between ">
           <ul>
           <li className='bg-[#F44336] text-white  hover:cursor-pointer text-sm font-semibold my-2 px-6 py-2  rounded-full '>Appartement</li>
           <li className=' text-gray-600 hover:text-gray-900  hover:cursor-pointer  text-sm font-semibold my-2 px-6 py-2  rounded-full '>Maison & villas</li>
@@ -99,7 +99,7 @@ onClick={(e)=>setToggle(false)}
             <li onClick={handleCat} className='cursor-pointer bg-white text-sm font-bold text-md text-neutral-600 border-[1px] border-gray-500 p-2 text-center'>Rechercher dans toutes les catégories</li>
           </ul>
         </div>
-        <div className=" mr-[250px]">
+        <div className=" ">
         <div className="flex flex-col justify-center text-center gap-6 py-3 ">
         <div className="flex boxsw px-4 py-2 items-center space-x-5   rounded-md text-sm   " onClick={handleCat}>
           <img src={pic1} alt="" className='w-8 bg-gray-300 rounded-full  hover:bg-gray-300' />
