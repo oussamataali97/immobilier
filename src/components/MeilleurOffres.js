@@ -1,16 +1,13 @@
 import React from 'react'
 import image from '../assets/29526_thumbnail.jpg'
 import image2 from '../assets/29527_thumbnail.jpg'
-
 import image3 from '../assets/29528_thumbnail.jpg'
-
 import image4 from '../assets/29529_thumbnail.jpg'
-
 const MeilleurOffres = () => {
   return (
     <div className='px-3 contain p-3'>
       <p className='text-2xl font-bold py-5'>Meilleures offres immobilières au Maroc</p>
-      <div className="grid  md:grid-cols-3 grid-cols-2 lg:grid-cols-4 gap-2">
+      <div className="grid  md:grid-cols-3 grid-cols-2 lg:grid-cols-4  gap-2">
       <div className="flex flex-col justify-between relative">
         <img src={image} alt="" />
         <p className='m-2 bg-orange-400 text-white px-2 py-1 text-xs w-fit rounded-lg absolute top-0 left-0'>Premium</p>
