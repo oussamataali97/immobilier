@@ -15,8 +15,8 @@ const Header = () => {
       <div className="px-3 hidden md:flex flex-col md:flex-row justify-between items-center border-y-[1px] py-3">
         <Link to="/"> <img src={logo} alt="" className=' w-44 py-3 md:py-0'/></Link>
         <ul className='flex items-center space-x-5'>
-          <li className='font-bold cursor-pointer hover:text-orange-400'>Connexion</li>
-          <li className='cursor-pointer hover:text-orange-400'>Crée un compte</li>
+          <Link to='/login'><li className='font-bold cursor-pointer hover:text-orange-400'>Connexion</li></Link>
+          <Link to='/create'><li className='cursor-pointer hover:text-orange-400'>Crée un compte</li></Link>
           <li className='flex items-center gap-2 text-green-700 bg-green-100 py-2 hover:outline hover:outline-[1px] hover:bg-green-200 cursor-pointer px-5'><AiOutlinePlusSquare size={20}/> Publier une annance</li>
         </ul>
       </div>

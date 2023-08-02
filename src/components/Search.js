@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {AiOutlineSearch} from 'react-icons/ai'
-import {BiCategoryAlt} from 'react-icons/bi'
+import {BiCategoryAlt, BiSearch} from 'react-icons/bi'
 import {MdClose, MdOutlineLocationOn} from 'react-icons/md'
 import CategoriesModal from '../Modals/CategoriesModal'
 
@@ -74,7 +74,7 @@ const Search = () => {
         </div> }
         </div>
         </div>
-
+        <button className=' bg-orange-500 px-5 text-white hidden md:block self-end py-[12px] rounded'><BiSearch size={20} /></button>
         <button className='block w-full bg-orange-400 text-white py-2 visible md:hidden'>Chercher</button>
 
     </div>
@@ -86,7 +86,11 @@ onClick={(e)=>setToggle(false)}
   className="justify-center items-center  flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
 
 >
-  <div className="relative w-[800px] max-h-[400px] overflow-auto  my-6 mx-auto max-w-3xl" >
+  <div data-aos="zoom-in"
+    data-aos-delay="10"
+    data-aos-duration="10"
+
+  className="relative w-[800px] max-h-[450px] overflow-auto  my-6 mx-auto max-w-3xl" >
     <div className="border-0 rounded-lg shadow-lg relative flex flex-row w-full bg-white outline-none focus:outline-none">
         <div className="hidden w-[250px] overflow-y-hidden sticky top-0 bottom-0 max-h-[400px]   bg-gray-100  p-3 md:flex flex-col justify-between ">
           <ul>
