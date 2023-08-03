@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from './../assets/logo.png'
-import {AiOutlinePlusSquare} from 'react-icons/ai'
+import {AiOutlineBell, AiOutlinePlusSquare,AiOutlineProfile,AiOutlineUser} from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-import { BiHome, BiPlus, BiSearch, BiSolidPlusSquare, BiUser } from 'react-icons/bi'
-import { MdEmail, MdOutlineEmail } from 'react-icons/md'
-
+import { BiHome, BiPlus, BiSearch, BiSolidAward, BiSolidPlusSquare, BiUser } from 'react-icons/bi'
+import { MdClose, MdEmail, MdOutlineEmail } from 'react-icons/md'
+import {BsAward} from 'react-icons/bs'
 const Header = () => {
+
+  const [profile,setProfile]=useState(false)
   return (
     <div className='bg-gray-100  '>
       <div className="max-w-5xl mx-auto pb-[7rem] md:pb-20 relative">
@@ -30,7 +32,7 @@ const Header = () => {
 
           <li className='py-3 cursor-pointer text-[9px] flex-1 font-bold text-gray-400 hover:text-orange-400 flex flex-col items-center  justify-center'><MdOutlineEmail size={17}/> Contactez Nous</li>
 
-          <li className='py-3 cursor-pointer text-[9px] flex-1 font-bold text-gray-400 hover:text-orange-400 flex flex-col items-center  justify-center'><BiUser size={17}/> Compte</li>
+          <li className='py-3 cursor-pointer text-[9px] flex-1 font-bold text-gray-400 hover:text-orange-400 flex flex-col items-center  justify-center' onClick={()=>setProfile(true)}><BiUser size={17}/> Compte</li>
 
         </ul>
 
@@ -38,7 +40,21 @@ const Header = () => {
 
       </div>
 
-
+      {profile && (
+        <>
+        <div data-aos={profile ? "fade-left" : "fade-right"} className="profile-phone w-64 bg-white py-10 fixed top-0 right-0 h-screen z-[10000]">
+          <MdClose  className='absolute top-3 right-3 text-gray-500' onClick={()=>setProfile(false)} size={30}/>
+            <p className='text-center font-bold text-xl'>Bienvenue </p>
+            <ul className=' mt-8 font-bold text-gray-600'>
+              <li className='flex items-center gap-4 py-4 px-5 hover:text-white hover:bg-orange-400'><AiOutlineProfile size={23} className='text-gray-500'/>Mes annonces</li>
+              <Link to="/login" onClick={()=>setProfile(false)}><li className='flex items-center gap-4 py-4 px-5 hover:text-white hover:bg-orange-400'><AiOutlineUser size={23} className='text-gray-500'/>Profile</li></Link>
+              <li className='flex items-center gap-4 py-4 px-5 hover:text-white hover:bg-orange-400'> <AiOutlineBell size={23} className='text-gray-500'/> Alertes</li>
+              <li className='flex items-center gap-4 py-4 px-5 hover:text-white hover:bg-orange-400'><BsAward size={23} className='text-gray-500'/>Publicité</li>
+            </ul>
+        </div>
+        <div className="opacity-75 fixed inset-0 z-40 bg-black"></div>
+</>
+      )}
       </div>
     </div>
   )

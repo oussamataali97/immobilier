@@ -41,6 +41,8 @@ transition: ease-in 0.2s;
     @apply max-w-5xl mx-auto
 }
 
+
+
 .heaad{
     background: linear-gradient(to bottom,#fff 20%,#f0f2f7 100%);
 }

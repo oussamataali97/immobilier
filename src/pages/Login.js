@@ -5,7 +5,7 @@ const Login = () => {
 
   const [toggle,setToggle]=useState(false)
   return (
-    <div className='mb-16 flex  flex-col gap-3 md:bg-white  p-6 max-w-md md:mx-auto loginx mx-1 -mt-[150px] md:-mt-10'>
+    <div className='mb-16 flex  flex-col gap-3 bg-white  p-6 max-w-md md:mx-auto md:loginx mx-1 -mt-[100px] md:-mt-10'>
       <p className='text-center font-bold text-2xl'>Se connecter</p>
       <p className='text-center text-light'>Connectez-vous à votre compte</p>
       <button className='bg-red-600 w-full py-3 rounded-md text-white  flex items-center justify-center gap-2 font-bold'> <AiFillGoogleCircle size={30}/> Continuez avec Google</button>
