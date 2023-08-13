@@ -88,3 +88,11 @@ box-shadow: 0 5px 18px -8px rgb(0 0 0 / 80%);
     background-color: rgb(212, 212, 212);
 
 }
+
+
+@media (max-width: 768px) {
+    .loginx{
+        box-shadow:none;
+   }
+
+}

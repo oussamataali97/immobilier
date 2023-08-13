@@ -47,7 +47,7 @@ const Search = () => {
       <div className="input-group flex-1 flex flex-col ">
         <label className='font-bold text-sm text-center md:text-left py-4 md:py-0' htmlFor="search">Que Recherchez-vous?</label>
         <div className="relative flex items-center ">
-        <AiOutlineSearch className='absolute ml-2'/>
+        <AiOutlineSearch className='absolute ml-2 text-gray-400 text-xl'/>
         <input type="text" className='border pl-7 p-2 w-full' placeholder='Que Recherchez-vous?' id='search' name='search'/>
         </div>
 
@@ -55,7 +55,7 @@ const Search = () => {
       <div className="input-group flex-1 flex flex-col cursor-pointer" onClick={()=>setToggle(true) }>
         <label className='font-bold text-sm hidden md:block' htmlFor="Categories">Choisissez une catégorie</label>
         <div className="relative flex items-center  ">
-        <BiCategoryAlt className='absolute ml-2'/>
+        <BiCategoryAlt className='absolute ml-2 text-gray-400 text-xl'/>
         <input type="text" className='border pl-7 p-2 w-full' value={categoryChosen} autoComplete='off' placeholder='Maison & villa' id='search' name='search'/>
 
         </div>
@@ -63,7 +63,7 @@ const Search = () => {
       <div className="input-group flex-1 flex flex-col">
         <label className='font-bold text-sm hidden md:block' htmlFor="Ville">Choisissez une ville</label>
         <div className="relative flex items-center ">
-        <MdOutlineLocationOn className='absolute ml-2'/>
+        <MdOutlineLocationOn className='absolute ml-2 text-gray-400 text-xl'/>
         <input type="text"  className=' border pl-7 p-2 w-full focus:outline-none' onClick={()=>setAcctive(true)} onChange={(e)=>setCity(e.target.value)} value={cityy}  autoComplete="off"  placeholder='Tout le Maroc' id='search' name='search'/>
         { acctive && <div data-aos="fade-up"   data-aos-delay="1"
     data-aos-duration="9000" className="  bg-white absolute top-10 w-full leading-9 divide-y-[1px] max-h-[14rem] min-h-fit  overflow-auto">
