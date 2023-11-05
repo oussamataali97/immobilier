@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import {AiOutlineSearch} from 'react-icons/ai'
 import {BiCategoryAlt, BiSearch} from 'react-icons/bi'
 import {MdClose, MdOutlineLocationOn} from 'react-icons/md'
-import CategoriesModal from '../Modals/CategoriesModal'
 
 import pic1 from './../assets/43.png'
 import pic2 from './../assets/44.png'
@@ -21,6 +20,7 @@ const Search = () => {
   const [toggle,setToggle]=useState(false)
   const [acctive,setAcctive]=useState(false)
   const [cityy,setCity]=useState('')
+  const [query,setQuery]=useState('')
 
   const [categoryChosen,setCategoryChosen]=useState('')
 
@@ -32,23 +32,27 @@ const Search = () => {
 
   const handleClck = (e) =>{
     setCity(e.target.innerHTML)
-    console.log(e)
     setAcctive(!acctive)
   }
 
-  console.log(categoryChosen)
+  const searchData={query,cityy,categoryChosen}
 
 
-  console.log(cityy)
+
+
+  const handleSubmitForm =(e)=>{
+      e.preventDefault()
+  }
 
   return (
     <>
+    <form onSubmit={handleSubmitForm}>
     <div className='flex  flex-col md:flex-row gap-3 md:bg-white  p-6 max-w-5xl md:mx-auto md:shadow-2xl mx-1 -mt-[150px] md:-mt-14'>
       <div className="input-group flex-1 flex flex-col ">
         <label className='font-bold text-sm text-center md:text-left py-4 md:py-0' htmlFor="search">Que Recherchez-vous?</label>
         <div className="relative flex items-center ">
         <AiOutlineSearch className='absolute ml-2 text-gray-400 text-xl'/>
-        <input type="text" className='border pl-7 p-2 w-full' placeholder='Que Recherchez-vous?' id='search' name='search'/>
+        <input type="text" className='border pl-7 p-2 w-full' onChange={(e)=>setQuery(e.target.value)} placeholder='Que Recherchez-vous?' id='search' name='search'/>
         </div>
 
       </div>
@@ -56,7 +60,7 @@ const Search = () => {
         <label className='font-bold text-sm hidden md:block' htmlFor="Categories">Choisissez une catégorie</label>
         <div className="relative flex items-center  ">
         <BiCategoryAlt className='absolute ml-2 text-gray-400 text-xl'/>
-        <input type="text" className='border pl-7 p-2 w-full' value={categoryChosen} autoComplete='off' placeholder='Maison & villa' id='search' name='search'/>
+        <input type="text" className='border pl-7 p-2 w-full' onChange={(e)=>e} value={categoryChosen} autoComplete='off' placeholder='Maison & villa' id='search' name='search'/>
 
         </div>
       </div>
@@ -78,6 +82,7 @@ const Search = () => {
         <button className='block w-full bg-orange-400 text-white py-2 visible md:hidden'>Chercher</button>
 
     </div>
+    </form>
     {toggle && (
 
 <>

@@ -2,23 +2,26 @@ import React, { useState } from 'react'
 import logo from './../assets/logo.png'
 import {AiOutlineBell, AiOutlinePlusSquare,AiOutlineProfile,AiOutlineUser} from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-import { BiHome, BiPlus, BiSearch, BiSolidAward, BiSolidPlusSquare, BiUser } from 'react-icons/bi'
-import { MdClose, MdEmail, MdOutlineEmail } from 'react-icons/md'
+import { BiHome, BiSearch,BiUser } from 'react-icons/bi'
+import { MdClose, MdOutlineEmail } from 'react-icons/md'
 import {BsAward} from 'react-icons/bs'
+import {logout } from '../Redux/userSlice/AuthSlice';
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 const Header = () => {
-
+  const user=useSelector(state=>state.auth.user)
   const [profile,setProfile]=useState(false)
   return (
     <div className='bg-gray-100  '>
       <div className="max-w-5xl mx-auto pb-[7rem] md:pb-20 relative">
 
 
-      <p className='text-right font-light py-3 hover:underline cursor-pointer hidden md:block'>Contactez Nous</p>
+    <Link to='/contact'><p className='text-right font-light py-3 hover:underline cursor-pointer hidden md:block'>Contactez Nous</p></Link>
       <div className="px-3 hidden md:flex flex-col md:flex-row justify-between items-center border-y-[1px] py-3">
         <Link to="/"> <img src={logo} alt="" className=' w-44 py-3 md:py-0'/></Link>
         <ul className='flex items-center space-x-5'>
-          <Link to='/login'><li className='font-bold cursor-pointer hover:text-orange-400'>Connexion</li></Link>
-          <Link to='/create'><li className='cursor-pointer hover:text-orange-400'>Crée un compte</li></Link>
+         {user ? <button  className='bg-green-600 text-white py-2 px-5'>Mon compte</button> : <Link to='/login'><li className='font-bold cursor-pointer hover:text-orange-400'>Connexion</li></Link>}
+          {!user && <Link to='/create'><li className='cursor-pointer hover:text-orange-400'>Crée un compte</li></Link>}
           <li className='flex items-center gap-2 text-green-700 bg-green-100 py-2 hover:outline hover:outline-[1px] hover:bg-green-200 cursor-pointer px-5'><AiOutlinePlusSquare size={20}/> Publier une annance</li>
         </ul>
       </div>
