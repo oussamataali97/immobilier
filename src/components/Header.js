@@ -14,6 +14,11 @@ const Header = () => {
 
   const [profile,setProfile]=useState(false)
   const [account,setAccount]=useState(false)
+
+  const handleClickMenu =()=>{
+    setAccount(true)
+    setProfile(false)
+  }
   return (
     <div className='bg-gray-100  '>
       <div className="max-w-5xl mx-auto pb-[7rem] md:pb-20 relative">
@@ -49,12 +54,13 @@ const Header = () => {
 
       {profile && (
         <>
+
         <div data-aos={profile ? "fade-left" : "fade-right"} className="profile-phone w-64 bg-white py-10 fixed top-0 right-0 h-screen z-[10000]">
           <MdClose  className='absolute top-3 right-3 text-gray-500' onClick={()=>setProfile(false)} size={30}/>
             <p className='text-center font-bold text-xl'>Bienvenue </p>
             <ul className=' mt-8 font-bold text-gray-600'>
               <li className='flex items-center gap-4 py-4 px-5 hover:text-white hover:bg-orange-400'><AiOutlineProfile size={23} className='text-gray-500'/>Mes annonces</li>
-              <Link to="/login" onClick={()=>setProfile(false)}><li className='flex items-center gap-4 py-4 px-5 hover:text-white hover:bg-orange-400'><AiOutlineUser size={23} className='text-gray-500'/>Profile</li></Link>
+              {user ? <button   className='flex items-center gap-4 w-full py-4 px-5 hover:text-white hover:bg-orange-400 ' onClick={handleClickMenu}><BiUser size={23} className='text-gray-500'/> Profile</button> : <Link to="/login" onClick={()=>setProfile(false)}><li className='flex items-center gap-4 py-4 px-5 hover:text-white hover:bg-orange-400'><AiOutlineUser size={23} className='text-gray-500'/>Login</li></Link>}
               <li className='flex items-center gap-4 py-4 px-5 hover:text-white hover:bg-orange-400'> <AiOutlineBell size={23} className='text-gray-500'/> Alertes</li>
               <li className='flex items-center gap-4 py-4 px-5 hover:text-white hover:bg-orange-400'><BsAward size={23} className='text-gray-500'/>Publicité</li>
             </ul>
@@ -63,6 +69,8 @@ const Header = () => {
 </>
       )}
       </div>
+      {account && <ProfileModal  setAccount={setAccount} account={account}  /> }
+
     </div>
   )
 }
