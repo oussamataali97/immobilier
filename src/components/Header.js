@@ -8,9 +8,12 @@ import {BsAward} from 'react-icons/bs'
 import {logout } from '../Redux/userSlice/AuthSlice';
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
+import ProfileModal from '../Modals/ProfileModal'
 const Header = () => {
   const user=useSelector(state=>state.auth.user)
+
   const [profile,setProfile]=useState(false)
+  const [account,setAccount]=useState(false)
   return (
     <div className='bg-gray-100  '>
       <div className="max-w-5xl mx-auto pb-[7rem] md:pb-20 relative">
@@ -20,10 +23,11 @@ const Header = () => {
       <div className="px-3 hidden md:flex flex-col md:flex-row justify-between items-center border-y-[1px] py-3">
         <Link to="/"> <img src={logo} alt="" className=' w-44 py-3 md:py-0'/></Link>
         <ul className='flex items-center space-x-5'>
-         {user ? <button  className='bg-green-600 text-white py-2 px-5'>Mon compte</button> : <Link to='/login'><li className='font-bold cursor-pointer hover:text-orange-400'>Connexion</li></Link>}
+         {user ? <button  className='bg-green-600 text-white py-2 px-5' onClick={()=>setAccount(!account)}>Mon compte</button> : <Link to='/login'><li className='font-bold cursor-pointer hover:text-orange-400'>Connexion</li></Link>}
           {!user && <Link to='/create'><li className='cursor-pointer hover:text-orange-400'>Crée un compte</li></Link>}
           <li className='flex items-center gap-2 text-green-700 bg-green-100 py-2 hover:outline hover:outline-[1px] hover:bg-green-200 cursor-pointer px-5'><AiOutlinePlusSquare size={20}/> Publier une annance</li>
         </ul>
+        {account && <ProfileModal setAccount={setAccount} account={account}  /> }
       </div>
 
       <div className=" heaad  flex md:hidden flex-col md:flex-row justify-between items-center border-y-[1px] ">

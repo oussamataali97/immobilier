@@ -1,16 +1,19 @@
   import {Header,Search,Categories,LastOfffers,MeilleurOffres,Layout,JoinUs,Footer} from "./components";
 import { Routes,Route } from "react-router-dom";
+
 import Notfound from "./pages/Notfound";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Login from "./pages/Login";
 import Create from "./pages/Create";
-import { useState } from "react";
 import Contact from "./pages/Contact";
 import DetailImo from "./pages/DetailImo";
 import { useEffect} from 'react'
 import { useDispatch } from "react-redux";
 import { getImmo } from "./Redux/annonceSlice/AnnonceSlice";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
 
     const dispatch=useDispatch()
@@ -24,6 +27,7 @@ function App() {
     AOS.init()
   return (
     <div className="">
+       <ToastContainer />
  <Header/>
  <Routes>
   <Route path="/" element={ <Layout/>}/>

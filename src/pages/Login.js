@@ -8,6 +8,7 @@ import { signInWithPopup,GoogleAuthProvider } from "firebase/auth";
 import { login ,logout } from '../Redux/userSlice/AuthSlice';
 import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
 import { useNavigate } from 'react-router-dom';
+import {toast } from 'react-toastify';
 
 
 const Login = () => {
@@ -36,11 +37,15 @@ const provider = new GoogleAuthProvider();
       // Signed in
       const user = userCredential.user;
      dispatch(login(user))
+     toast.success("Authentication success");
      navigate('/')
       // ...
     })
     .catch((error) => {
       setError(error.message)
+      toast.error("Authentication Failed");
+
+
 
     });
 
@@ -55,7 +60,9 @@ const provider = new GoogleAuthProvider();
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-      // IdP data available using getAdditionalUserInfo(result)
+      dispatch(login(user))
+      toast.success("Authentication success");
+      navigate('/')
       // ...
     }).catch((error) => {
       // Handle Errors here.
@@ -82,7 +89,7 @@ const provider = new GoogleAuthProvider();
   <form action="" className='mt-4' onSubmit={handleSubmit}>
     <div className="form-group flex flex-col">
     <label className='font-bold mb-1 text-sm' htmlFor="email">Email</label>
-    <input type="email" required placeholder='votre email ' onChange={handleChange} className='focus:outline-none px-2 py-2 border border-gray-300' id='email' name='email' />
+    <input type="text" required placeholder='votre email ' onChange={handleChange} className='focus:outline-none px-2 py-2 border border-gray-300' id='email' name='email' />
     </div>
     <div className="form-group relative flex flex-col py-3">
       <p onClick={()=>setToggle(!toggle)}>  {toggle ? <AiFillEye size={25} className='absolute top-[45px] right-3 text-gray-500 cursor-pointer' /> : <AiFillEyeInvisible size={25} className='absolute top-[45px] right-3 text-gray-500 cursor-pointer' onClick={()=>setToggle(!toggle)}/>} </p>
