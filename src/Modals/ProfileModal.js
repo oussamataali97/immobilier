@@ -4,11 +4,16 @@ import { BiHome, BiPackage, BiSearch,BiUser } from 'react-icons/bi'
 import {logout } from '../Redux/userSlice/AuthSlice';
 import { useDispatch } from 'react-redux'
 import welcome from './../assets/welcome.jpg'
+import { useNavigate } from 'react-router-dom';
 
 const ProfileModal = ({account,setAccount}) => {
     const dispatch=useDispatch()
+const navigate=useNavigate()
     const user=useSelector(state=>state.auth.user)
-
+const handleLogout =()=>{
+  dispatch(logout())
+  navigate('/login')
+}
   return (
     <div>
         <div
@@ -36,7 +41,7 @@ onClick={()=>setAccount(!account)}
           <li className='py-3 cursor-pointer flex-1 font-bold text-gray-400 hover:text-orange-400 flex items-center gap-x-2'><BiSearch size={24}/> Mes Annonces</li>
           <li className='py-3 cursor-pointer flex-1 font-bold text-gray-400 hover:text-orange-400 flex items-center gap-x-2'><BiUser size={24}/> Profile</li>
           <li className='py-3 cursor-pointer flex-1 font-bold text-gray-400 hover:text-orange-400 flex items-center gap-x-2'><BiPackage size={24}/> Publicités</li>
-          <li onClick={()=>dispatch(logout())} className='py-3 cursor-pointer flex-1 font-bold bg-red-600 text-white w-fit px-4 rounded-lg  flex items-center gap-x-2'><BiUser size={24}/> Logout</li>
+          <li onClick={handleLogout } className='py-3 cursor-pointer flex-1 font-bold bg-red-600 text-white w-fit px-4 rounded-lg  flex items-center gap-x-2'><BiUser size={24}/> Logout</li>
 
         </ul>
 

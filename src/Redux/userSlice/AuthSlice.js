@@ -3,13 +3,11 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 const initialState={
-    user: JSON.parse(window.localStorage.getItem('user')) ||null,
+    user: JSON.parse(window.localStorage.getItem('user')) || null,
     isLoading:false,
 
 
 }
-
-
 
 
 

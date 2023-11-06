@@ -19,6 +19,11 @@ const Login = () => {
     window.localStorage.setItem('user',JSON.stringify(user))
   },[user])
 
+  useEffect(()=>{
+    if(user){
+      navigate('/')
+    }
+  },[user])
 
 const dispatch=useDispatch()
 const provider = new GoogleAuthProvider();
@@ -66,12 +71,8 @@ const provider = new GoogleAuthProvider();
       // ...
     }).catch((error) => {
       // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.customData.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
+    setError(error.message)
+
       // ...
     });
   }
