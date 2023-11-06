@@ -10,22 +10,37 @@ import Contact from "./pages/Contact";
 import DetailImo from "./pages/DetailImo";
 import { useEffect} from 'react'
 import { useDispatch } from "react-redux";
-import { getImmo } from "./Redux/annonceSlice/AnnonceSlice";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoutes from "./utilities/PrivateRoutes";
 import { useSelector } from 'react-redux'
-
-
-
+import AddAnnonces from "./pages/AddAnnonces";
+import AnnoncesPage from "./pages/AnnoncesPage";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "./firebase";
+import { getAnnonces } from "./Redux/annonceSlice/AnnonceSlice";
 function App() {
 
     const user=useSelector(state=>state.auth.user)
-    const dispatch=useDispatch()
+const dispatch=useDispatch()
 const navigate=useNavigate()
     useEffect(()=>{
       window.scrollTo(0, 0);
-      dispatch(getImmo())
+      const fetchdata= async()=>{
+        let list=[]
+        const querySnapshot = await getDocs(collection(db, "annonces"));
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id,'id document')
+          list.push({id:doc.id,...doc.data()})
+
+        });
+        dispatch(getAnnonces(list))
+
+    }
+
+    fetchdata()
+
     } ,[])
 
 const userr=window.localStorage.getItem('user')
@@ -46,6 +61,9 @@ const userr=window.localStorage.getItem('user')
 {/*   <Route path="/" element={ <Layout/>}/>
  */}  <Route path="/*" element={ <Notfound/>}/>
   <Route path="/login" element={<Login/>}/>
+  <Route path="/add" element={<AddAnnonces/>}/>
+  <Route path="/annonces" element={<AnnoncesPage/>}/>
+
   <Route index element={
         <PrivateRoutes>
         <Layout/>

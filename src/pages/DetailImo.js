@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getImmoId } from '../Redux/annonceSlice/AnnonceSlice'
 import { useDispatch,useSelector } from 'react-redux'
 
 const DetailImo = () => {
@@ -9,7 +8,6 @@ const DetailImo = () => {
     const {id}=useParams()
     useEffect(()=>{
       window.scrollTo(0, 0);
-            dispatch(getImmoId(id))
     },[])
   return (
     <div>
