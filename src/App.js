@@ -19,29 +19,51 @@ import AnnoncesPage from "./pages/AnnoncesPage";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./firebase";
 import { getAnnonces } from "./Redux/annonceSlice/AnnonceSlice";
+import {  onSnapshot,orderBy,limit,query} from "firebase/firestore";
+import UpdateAnnonce from "./pages/UpdateAnnonce";
+
 function App() {
+
 
     const user=useSelector(state=>state.auth.user)
 const dispatch=useDispatch()
 const navigate=useNavigate()
     useEffect(()=>{
+
       window.scrollTo(0, 0);
-      const fetchdata= async()=>{
+      /* const fetchdata= async()=>{
         let list=[]
-        const querySnapshot = await getDocs(collection(db, "annonces"));
+ */
+  /*       const onSnapshot = await getDocs(collection(db, "annonces"));
         querySnapshot.forEach((doc) => {
           // doc.data() is never undefined for query doc snapshots
             console.log(doc.id,'id document')
           list.push({id:doc.id,...doc.data()})
 
-        });
-        dispatch(getAnnonces(list))
+        }); */
 
+        const collRef = collection(db,'annonces');
+        const  q= query (collRef, orderBy("createdAt",'desc'));
+
+
+const unsubscribe = onSnapshot(q,(querySnapshot) => {
+  const list = [];
+  querySnapshot.forEach((doc) => {
+    list.push({id:doc.id,...doc.data()})
+    console.log(doc)
+  });
+  dispatch(getAnnonces(list))
+
+});
+
+        return ()=>{
+          unsubscribe()
+        }
     }
 
-    fetchdata()
 
-    } ,[])
+
+     ,[])
 
 const userr=window.localStorage.getItem('user')
 
@@ -61,6 +83,8 @@ const userr=window.localStorage.getItem('user')
 {/*   <Route path="/" element={ <Layout/>}/>
  */}  <Route path="/*" element={ <Notfound/>}/>
   <Route path="/login" element={<Login/>}/>
+  <Route path="/update/:id" element={<UpdateAnnonce/>}/>
+
   <Route path="/add" element={<AddAnnonces/>}/>
   <Route path="/annonces" element={<AnnoncesPage/>}/>
 

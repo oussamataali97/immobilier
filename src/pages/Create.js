@@ -8,10 +8,11 @@ import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { db } from '../firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
-
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import { auth } from '../firebase'
 import { storage } from '../firebase';
+import { createUser } from '../Redux/userSlice/AuthSlice';
 const Create = () => {
   const [toggle,setToggle]=useState(false)
   const [data,setData]=useState()
@@ -19,7 +20,7 @@ const Create = () => {
   const [file,setFile]=useState('')
   const [error,setError]=useState('')
   const user=useSelector(state=>state.auth.user)
-
+  const dispatch=useDispatch()
   useEffect(()=>{
     if(user){
       navigate('/')
@@ -104,7 +105,6 @@ const navigate=useNavigate()
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-
       toast.success("Registration success");
       navigate('/login')
       // ...
@@ -142,7 +142,7 @@ const navigate=useNavigate()
 
 
     <div className="input">
-    <label className="block mb-2 text-sm font-medium text-gray-500 dark:text-white" for="file_input">Upload Picture</label>
+    <label className="block mb-2 text-sm font-medium text-gray-500 " for="file_input">Upload Picture</label>
 <input onChange={handleChangeFile} name='picture' className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file"/>
 <p className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
 
