@@ -17,7 +17,7 @@ const MeilleurOffres = () => {
       <div className='px-3 contain p-3'>
         <p className='text-2xl font-bold py-5'>Meilleures offres immobilières au Maroc</p>
         <div className="grid  md:grid-cols-3 grid-cols-2 lg:grid-cols-4   gap-2">
-          { annonce
+          { annonce.filter(ann=>ann.isPremium)
           .map((a,index)=>(
           <Link key={index} to={`/immo/${a?.id}`}>  <div className="flex flex-col justify-between relative">
             <img src={a?.photoURL} alt="" className='w-[300px] h-[190px] object-cover'/>
