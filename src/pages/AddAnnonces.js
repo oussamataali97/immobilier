@@ -12,6 +12,8 @@ const AddAnnonces = () => {
     const navigate=useNavigate()
     const [perc,setPerc]=useState(null)
     const [file,setFile]=useState('')
+    const id =JSON.parse(window.localStorage.getItem('user'))
+    console.log(id.uid)
 
     const handleChangeFile =(e)=>{
         setFile(e.target.files[0])
@@ -71,8 +73,10 @@ const AddAnnonces = () => {
             const docRef = await addDoc(collection(db, "annonces"), {
               ...dataEntry,
               isSold: false,
+              userId:id.uid,
               isPremium:false,
               createdAt:serverTimestamp()
+
             });
 
             toast.success("Annonce Ajoutée avec success ");

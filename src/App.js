@@ -85,16 +85,16 @@ const userr=window.localStorage.getItem('user')
   <Route path="/login" element={<Login/>}/>
   <Route path="/update/:id" element={<UpdateAnnonce/>}/>
 
-  <Route path="/add" element={<AddAnnonces/>}/>
+  <Route path="/add" element={
+    <PrivateRoutes>
+  <AddAnnonces/>
+  </PrivateRoutes>}/>
   <Route path="/annonces" element={<AnnoncesPage/>}/>
 
-  <Route index element={
-        <PrivateRoutes>
-        <Layout/>
-      </PrivateRoutes>
-  }>
+  <Route path="/" element=  { <Layout/>}/>
 
-  </Route>
+
+
   <Route path="/create" element={ <Create/>}/>
   <Route path="/immo/:id" element={ <DetailImo/>}/>
 

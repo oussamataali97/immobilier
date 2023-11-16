@@ -22,7 +22,7 @@ const Header = () => {
       <div className="max-w-5xl mx-auto pb-[7rem] md:pb-20 relative">
 
 
-    <Link to='/contact'><p className='text-right font-light py-3 hover:underline cursor-pointer hidden md:block'>Contactez Nous</p></Link>
+    <Link to='/contact'><p className='text-right font-light py-3 hover:underline cursor-pointer hidden md:block'>Contact us</p></Link>
       <div className="px-3 hidden md:flex flex-col md:flex-row justify-between items-center border-y-[1px] py-3">
         <Link to="/"> <img src={logo} alt="" className=' w-44 py-3 md:py-0'/></Link>
         <ul className='flex items-center space-x-5'>

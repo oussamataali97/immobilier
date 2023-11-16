@@ -5,17 +5,51 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { AiFillDelete } from 'react-icons/ai';
 import { BiEdit, BiShowAlt } from 'react-icons/bi';
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, deleteDoc, where } from "firebase/firestore";
 import { db } from '../firebase';
 import { Link } from 'react-router-dom';
+import { getUserAnnonces } from '../Redux/annonceSlice/AnnonceSlice';
+import {  onSnapshot,query} from "firebase/firestore";
+import { collection } from "firebase/firestore";
 
 const AnnoncesPage = () => {
+
+  const dispatch=useDispatch()
 
   useEffect(()=>{
     window.scrollTo(0, 0);
 
   },[])
-  const annonce=useSelector((state)=>state.annonce.annonce)
+
+  const id=JSON.parse(window.localStorage.getItem('user'))
+  console.log(id)
+
+  useEffect(()=>{
+
+
+
+      const collRef = collection(db,'annonces');
+      const  q= query (collRef, where('userId', '==', id.uid ) );
+
+
+const unsubscribe = onSnapshot(q,(querySnapshot) => {
+const list = [];
+querySnapshot.forEach((doc) => {
+  list.push({id:doc.id,...doc.data()})
+  console.log(doc)
+});
+dispatch(getUserAnnonces(list))
+
+});
+return ()=>{
+  unsubscribe()
+}
+}
+
+
+
+,[])
+  const annonce=useSelector((state)=>state.annonce.userAnnonces)
 
 const handleDelete =async(id)=>{
 

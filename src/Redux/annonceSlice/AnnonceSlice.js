@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState={
     annonce:[],
-    selectedAnnonce:[]
+    userAnnonces:[]
 }
 
 
@@ -15,10 +15,13 @@ const initialState={
     reducers:{
       getAnnonces:(state,action)=>{
         state.annonce=action.payload
+      },
+      getUserAnnonces:(state,action)=>{
+        state.userAnnonces=action.payload
       }
     }
 
 })
 
-export const {getAnnonces}=AnnonceSlice.actions
+export const {getAnnonces,getUserAnnonces}=AnnonceSlice.actions
 export const AnonceSliceRe = AnnonceSlice.reducer
