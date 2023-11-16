@@ -2,6 +2,12 @@ import React, { useState } from 'react'
 import {AiOutlineSearch} from 'react-icons/ai'
 import {BiCategoryAlt, BiSearch} from 'react-icons/bi'
 import {MdClose, MdOutlineLocationOn} from 'react-icons/md'
+import {  and, onSnapshot,query} from "firebase/firestore";
+import { collection } from "firebase/firestore";
+import { doc, deleteDoc, where} from "firebase/firestore";
+import { db } from '../firebase';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import pic1 from './../assets/43.png'
 import pic2 from './../assets/44.png'
@@ -13,16 +19,17 @@ import pic5 from './../assets/47.png'
 
 
 import pic6 from './../assets/97.png'
+import { Link } from 'react-router-dom'
+import { searchAnnonce } from '../Redux/annonceSlice/AnnonceSlice';
+import { useNavigate } from 'react-router-dom';
+const Search = ({city,cityy,setAcctive,setCategoryChosen,setQuery,setCity,querye,acctive,setToggle,toggle,categoryChosen}) => {
 
-const Search = () => {
 
-  const city =['Errissani','Tadighoust','Goulmim','Tileft','Tanger','Errachidia','Casa','Goulmima','Méknes','Tetouan','Mohamedia','Asfi','Tinghir','Fes','Marakech','Dakhla','Laayoun','... et 60 autres ville, entrez votre nom ville pour affiner les résultats']
-  const [toggle,setToggle]=useState(false)
-  const [acctive,setAcctive]=useState(false)
-  const [cityy,setCity]=useState('')
-  const [query,setQuery]=useState('')
+const dispatch=useDispatch()
 
-  const [categoryChosen,setCategoryChosen]=useState('')
+const navigate=useNavigate()
+
+
 
   const handleCat =(e)=>{
 
@@ -35,14 +42,36 @@ const Search = () => {
     setAcctive(!acctive)
   }
 
-  const searchData={query,cityy,categoryChosen}
 
 
+
+  const searchData={querye,cityy,categoryChosen}
 
 
   const handleSubmitForm =(e)=>{
       e.preventDefault()
-  }
+      window.localStorage.setItem('searchDat',JSON.stringify(searchData))
+
+      navigate('/search')
+/*       const collRef = collection(db,'annonces');
+      const  q= query (collRef, where('Ville', '==', cityy ))
+      console.log(q,'queru')
+
+
+  const unsubscribe = onSnapshot(q,(querySnapshot) => {
+  const list = [];
+  querySnapshot.forEach((doc) => {
+  list.push({id:doc.id,...doc.data()})
+  console.log(doc)
+  });
+  console.log(list,'hhh')
+
+
+
+  unsubscribe()
+
+  }) */}
+
 
   return (
     <>
@@ -78,8 +107,8 @@ const Search = () => {
         </div> }
         </div>
         </div>
-        <button className=' bg-orange-500 px-5 text-white hidden md:block self-end py-[12px] rounded'><BiSearch size={20} /></button>
-        <button className='block w-full bg-orange-400 text-white py-2 visible md:hidden'>Chercher</button>
+       <button className=' bg-orange-500 px-5 text-white hidden md:block self-end py-[9px] rounded'><BiSearch size={20} /></button>
+       <Link to='/search'> <button className='block w-full bg-orange-400 text-white py-2 visible md:hidden'>Search</button></Link>
 
     </div>
     </form>

@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState={
     annonce:[],
-    userAnnonces:[]
+    userAnnonces:[],
+    searchQuery:JSON.parse(window.localStorage.getItem('searchDat')) || null,
 }
 
 
@@ -18,10 +19,14 @@ const initialState={
       },
       getUserAnnonces:(state,action)=>{
         state.userAnnonces=action.payload
+      },
+      searchAnnonce:(state,action)=>{
+        state.searchQuery=action.payload
       }
+
     }
 
 })
 
-export const {getAnnonces,getUserAnnonces}=AnnonceSlice.actions
+export const {getAnnonces,searchAnnonce,getUserAnnonces}=AnnonceSlice.actions
 export const AnonceSliceRe = AnnonceSlice.reducer

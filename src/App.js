@@ -21,6 +21,7 @@ import { db } from "./firebase";
 import { getAnnonces } from "./Redux/annonceSlice/AnnonceSlice";
 import {  onSnapshot,orderBy,limit,query} from "firebase/firestore";
 import UpdateAnnonce from "./pages/UpdateAnnonce";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
 
@@ -89,9 +90,16 @@ const userr=window.localStorage.getItem('user')
     <PrivateRoutes>
   <AddAnnonces/>
   </PrivateRoutes>}/>
-  <Route path="/annonces" element={<AnnoncesPage/>}/>
+
+  <Route  path="/annonces" element={
+    <PrivateRoutes>
+<AnnoncesPage/>
+  </PrivateRoutes>}/>
+
 
   <Route path="/" element=  { <Layout/>}/>
+  <Route path="/search" element=  { <SearchPage/>}/>
+
 
 
 
