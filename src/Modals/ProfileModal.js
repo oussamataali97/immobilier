@@ -2,6 +2,8 @@ import React from 'react'
 import {useSelector } from 'react-redux/es/hooks/useSelector';
 import { BiHome, BiPackage, BiSearch,BiUser } from 'react-icons/bi'
 import {logout } from '../Redux/userSlice/AuthSlice';
+import { CiLogout } from "react-icons/ci";
+
 import { useDispatch } from 'react-redux'
 import welcome from './../assets/welcome.jpg'
 import { Link, useNavigate } from 'react-router-dom';
@@ -36,12 +38,12 @@ onClick={()=>setAccount(!account)}
             <ul className='flex flex-col w-full '>
             <li className='flex items-center gap-x-2 border-b-[1px] py-1'>
             {user?.photoURL && <img src={user?.photoURL} alt="" className='w-12 rounded-full'/>}
-            <p className='text-center font-bold '>Bienvenue <span className='text-orange-400'>{user?.displayName}</span></p>
+            <p className='text-center font-bold '>Welcome <span className='text-orange-400'>{user?.displayName}</span></p>
             </li>
-          <Link to='/annonces'><li className='py-3 cursor-pointer flex-1 font-bold text-gray-400 hover:text-orange-400 flex items-center gap-x-2'><BiSearch size={24}/> Mes Annonces</li></Link>
+          <Link to='/annonces'><li className='py-3 cursor-pointer flex-1 font-bold text-gray-400 hover:text-orange-400 flex items-center gap-x-2'><BiSearch size={24}/> My Annonces</li></Link>
           <li className='py-3 cursor-pointer flex-1 font-bold text-gray-400 hover:text-orange-400 flex items-center gap-x-2'><BiUser size={24}/> Profile</li>
-          <li className='py-3 cursor-pointer flex-1 font-bold text-gray-400 hover:text-orange-400 flex items-center gap-x-2'><BiPackage size={24}/> Publicités</li>
-          <li onClick={handleLogout } className='py-3 cursor-pointer flex-1 font-bold bg-red-600 text-white w-fit px-4 rounded-lg  flex items-center gap-x-2'><BiUser size={24}/> Logout</li>
+          <li className='py-3 cursor-pointer flex-1 font-bold text-gray-400 hover:text-orange-400 flex items-center gap-x-2'><BiPackage size={24}/> Ads</li>
+          <li onClick={handleLogout } className='py-3 cursor-pointer flex-1 font-bold bg-red-600 text-white w-fit px-4 rounded-lg  flex items-center gap-x-2'><CiLogout size={24}/> Logout</li>
 
         </ul>
 

@@ -7,11 +7,11 @@ const JoinUs = () => {
 
 
       <div className="text contain">
-        <p className='md:text-2xl text-lg font-bold  mb-3'>Vous êtes un professionnel de l'immobilier?</p>
-        <p className='md:font-semibold font-normal md:text-md md:max-w-[800px]'>Ne cherchez plus ! Rejoignez notre réseau dès maintenant et bénéficiez de nombreux avantages pour développer votre activité.</p>
+        <p className='md:text-2xl text-lg font-bold  mb-3'>Are you a real estate professional?</p>
+        <p className='md:font-semibold font-normal md:text-md md:max-w-[800px]'>Do not search anymore ! Join our network now and benefit from many advantages to develop your business.</p>
 
       </div>
-      <button className=' bg-black font-bold text-white px-5 md:py-4 py-3 rounded-full block w-full md:w-auto mt-3'>Nous rejoindre</button>
+      <button className=' bg-black font-bold text-white px-5 md:py-4 py-3 rounded-full block w-full md:w-auto mt-3'>Join us</button>
     </div>
     </div>
   )

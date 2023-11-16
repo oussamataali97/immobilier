@@ -14,7 +14,8 @@ const LastOfffers = () => {
 
   return (
     <div className='contain px-6 md:mt-16'>
-    <p className='text-2xl font-bold py-5'>Les dernieres offres immobilières au Maroc</p>
+    <p className='text-2xl font-bold py-5'>The latest real estate offers in Morocco
+</p>
     <div className="grid  md:grid-cols-3 grid-cols-2 lg:grid-cols-4 md:gap-x-16 gap-2">
         { annonce
           .map((a,index)=>(

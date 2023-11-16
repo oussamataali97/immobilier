@@ -49,26 +49,26 @@ const Search = () => {
     <form onSubmit={handleSubmitForm}>
     <div className='flex  flex-col md:flex-row gap-3 md:bg-white  p-6 max-w-5xl md:mx-auto md:shadow-2xl mx-1 -mt-[150px] md:-mt-14'>
       <div className="input-group flex-1 flex flex-col ">
-        <label className='font-bold text-sm text-center md:text-left py-4 md:py-0' htmlFor="search">Que Recherchez-vous?</label>
+        <label className='font-bold text-sm text-center md:text-left py-4 md:py-0' htmlFor="search">What are you looking for?</label>
         <div className="relative flex items-center ">
         <AiOutlineSearch className='absolute ml-2 text-gray-400 text-xl'/>
-        <input type="text" className='border pl-7 p-2 w-full' onChange={(e)=>setQuery(e.target.value)} placeholder='Que Recherchez-vous?' id='search' name='search'/>
+        <input type="text" className='border pl-7 p-2 w-full' onChange={(e)=>setQuery(e.target.value)} placeholder='What are you looking for?' id='search' name='search'/>
         </div>
 
       </div>
       <div className="input-group flex-1 flex flex-col cursor-pointer" onClick={()=>setToggle(true) }>
-        <label className='font-bold text-sm hidden md:block' htmlFor="Categories">Choisissez une catégorie</label>
+        <label className='font-bold text-sm hidden md:block' htmlFor="Categories">Choose a category</label>
         <div className="relative flex items-center  ">
         <BiCategoryAlt className='absolute ml-2 text-gray-400 text-xl'/>
-        <input type="text" className='border pl-7 p-2 w-full' onChange={(e)=>e} value={categoryChosen} autoComplete='off' placeholder='Maison & villa' id='search' name='search'/>
+        <input type="text" className='border pl-7 p-2 w-full' onChange={(e)=>e} value={categoryChosen} autoComplete='off' placeholder='Choose a category' id='search' name='search'/>
 
         </div>
       </div>
       <div className="input-group flex-1 flex flex-col">
-        <label className='font-bold text-sm hidden md:block' htmlFor="Ville">Choisissez une ville</label>
+        <label className='font-bold text-sm hidden md:block' htmlFor="Ville">Choose a city</label>
         <div className="relative flex items-center ">
         <MdOutlineLocationOn className='absolute ml-2 text-gray-400 text-xl'/>
-        <input type="text"  className=' border pl-7 p-2 w-full focus:outline-none' onClick={()=>setAcctive(true)} onChange={(e)=>setCity(e.target.value)} value={cityy}  autoComplete="off"  placeholder='Tout le Maroc' id='search' name='search'/>
+        <input type="text"  className=' border pl-7 p-2 w-full focus:outline-none' onClick={()=>setAcctive(true)} onChange={(e)=>setCity(e.target.value)} value={cityy}  autoComplete="off"  placeholder='All of Morocco' id='search' name='search'/>
         { acctive && <div data-aos="fade-up"   data-aos-delay="1"
     data-aos-duration="9000" className="  bg-white absolute top-10 w-full leading-9 divide-y-[1px] max-h-[14rem] min-h-fit  overflow-auto">
             { city.filter(e=>e.toLowerCase().startsWith(cityy.toLowerCase())
@@ -112,27 +112,27 @@ onClick={(e)=>setToggle(false)}
         <div className="flex flex-col justify-center text-center gap-6 py-3 ">
         <div className="flex boxsw px-4 py-2 items-center space-x-5   rounded-md text-sm   " onClick={handleCat}>
           <img src={pic1} alt="" className='w-8 bg-gray-300 rounded-full  hover:bg-gray-300' />
-          <p className="mt-3 font-semibold"    >Appartement</p>
+          <p className="mt-3 font-semibold"    >Apartement</p>
         </div>
         <div className="flex boxsw px-4 py-2 items-center space-x-5   rounded-md text-sm  " onClick={handleCat}>
           <img src={pic2} alt="" className='w-8 bg-gray-300 rounded-full  hover:bg-gray-300' />
-          <p className="mt-3 font-semibold "  >Maison & villa</p>
+          <p className="mt-3 font-semibold "  >House & villa</p>
         </div>
         <div className="flex boxsw px-4 py-2 items-center space-x-5   rounded-md text-sm  " onClick={handleCat}>
           <img src={pic3} alt="" className='w-8 bg-gray-300 rounded-full  hover:bg-gray-300' />
-          <p className="mt-3 font-semibold "  >Magasin & commerce</p>
+          <p className="mt-3 font-semibold "  >Store & Commerce</p>
         </div>
         <div className="flex boxsw px-4 py-2 items-center space-x-5   rounded-md text-sm  " onClick={handleCat}>
           <img src={pic4} alt="" className='w-8 bg-gray-300 rounded-full  hover:bg-gray-300' />
-          <p className="mt-3 font-semibold "  >Bureau & plateau</p>
+          <p className="mt-3 font-semibold "  >Desk & Tray</p>
         </div>
         <div className="flex boxsw px-4 py-2 items-center space-x-5   rounded-md text-sm  " onClick={handleCat}>
           <img src={pic5} alt="" className='w-8 bg-gray-300 rounded-full  hover:bg-gray-300 ' />
-          <p className="mt-3 font-semibold "  >Terrain & fermes</p>
+          <p className="mt-3 font-semibold "  >Land & farmes</p>
         </div>
         <div className="flex boxsw px-4 py-2 items-center space-x-5   rounded-md text-sm  "  onClick={handleCat} id='Autres'>
           <img src={pic6} alt="" className='w-8 bg-gray-300 rounded-full  hover:bg-gray-300' />
-          <p className="mt-3 font-semibold " >Autres</p>
+          <p className="mt-3 font-semibold " >Others</p>
         </div>
 
       </div>

@@ -15,7 +15,7 @@ const MeilleurOffres = () => {
   if(annonce.length!=0){
     return (
       <div className='px-3 contain p-3'>
-        <p className='text-2xl font-bold py-5'>Meilleures offres immobilières au Maroc</p>
+        <p className='text-2xl font-bold py-5'>Best real estate deals in Morocco</p>
         <div className="grid  md:grid-cols-3 grid-cols-2 lg:grid-cols-4   gap-2">
           { annonce.filter(ann=>ann.isPremium)
           .map((a,index)=>(

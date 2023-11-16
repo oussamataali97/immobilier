@@ -15,7 +15,7 @@ const AnnoncesPage = () => {
     window.scrollTo(0, 0);
 
   },[])
-const annonce=useSelector((state)=>state.annonce.annonce)
+  const annonce=useSelector((state)=>state.annonce.annonce)
 
 const handleDelete =async(id)=>{
 
@@ -24,12 +24,11 @@ const handleDelete =async(id)=>{
 
   return (
     <>
-            <p className='text-center text-xl text-orange-600 font-bold py-6'>Mes Annonces </p>
+            <p className='text-center text-xl text-orange-600 font-bold py-6'> {annonce?.length ? `${ annonce?.length } Annonces` : `${ annonce?.length } Annonce` }  </p>
 
 
     <div className='max-w-6xl mx-auto grid md:grid-cols-3 grid-cols-2 lg:grid-cols-4  p-3 gap-x-10 gap-y-5'>
-
-        {annonce.map(d=>(
+    {annonce ?   annonce?.map(d=>(
 
 <div key={d.id} className="flex flex-col justify-between border lg:min-w-[250px] ">
 <img src={d.photoURL} alt="" />
@@ -47,7 +46,11 @@ const handleDelete =async(id)=>{
 </ul>
 </div>
 
-        ))}
+        )) :
+
+     <p>There's no annonces Yet</p>  }
+
+
     </div>
     </>
   )
