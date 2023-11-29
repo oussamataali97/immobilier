@@ -22,6 +22,7 @@ import { getAnnonces } from "./Redux/annonceSlice/AnnonceSlice";
 import {  onSnapshot,orderBy,limit,query} from "firebase/firestore";
 import UpdateAnnonce from "./pages/UpdateAnnonce";
 import SearchPage from "./pages/SearchPage";
+import CategoryPage from "./pages/CategoryPage";
 
 function App() {
 
@@ -99,6 +100,8 @@ const userr=window.localStorage.getItem('user')
 
   <Route path="/" element=  { <Layout/>}/>
   <Route path="/search" element=  { <SearchPage/>}/>
+  <Route path="/morocco/:categorie" element=  { <CategoryPage/>}/>
+
 
 
 
