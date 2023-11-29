@@ -27,7 +27,6 @@ const UpdateAnnonce = () => {
 
 
     },[])
-console.log(oldData)
     const [file,setFile]=useState('')
     const [enable,setEnable]=useState(false)
     const handleChange=(e)=>{
@@ -100,12 +99,12 @@ console.log(oldData)
   return (
 
     <div className='max-w-3xl mx-auto p-5'>
-    <p className='text-center font-bold text-gray-400'>Ajouter Une nouvelle Annonce </p>
+    <p className='text-center font-bold text-gray-400'>Update Ad </p>
 
 <form onSubmit={handleSubmit}>
 
 <div className="flex gap-x-3 items-center py-4">
-<img src={file ? URL.createObjectURL(file) : oldData?.photoURL} alt="picture" className='w-32 h-32 object-cover rounded-full' />
+<img src={file ? URL.createObjectURL(file) : oldData?.photoURL} alt="picture" className='w-32 h-32 object-cover rounded-lg' />
 
 
 <div className="input">

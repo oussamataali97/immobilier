@@ -55,7 +55,6 @@ const navigate=useNavigate()
       navigate('/search')
 /*       const collRef = collection(db,'annonces');
       const  q= query (collRef, where('Ville', '==', cityy ))
-      console.log(q,'queru')
 
 
   const unsubscribe = onSnapshot(q,(querySnapshot) => {

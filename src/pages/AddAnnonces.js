@@ -13,7 +13,6 @@ const AddAnnonces = () => {
     const [perc,setPerc]=useState(null)
     const [file,setFile]=useState('')
     const id =JSON.parse(window.localStorage.getItem('user'))
-    console.log(id.uid)
 
     const handleChangeFile =(e)=>{
         setFile(e.target.files[0])
@@ -24,7 +23,6 @@ const AddAnnonces = () => {
 
     const uploadFile=()=>{
       const name=new Date().getTime() + file.name
-      console.log(name)
       const storageRef = ref(storage, file.name);
 
       const uploadTask = uploadBytesResumable(storageRef, file);

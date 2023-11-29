@@ -7,7 +7,6 @@ const MeilleurOffres = () => {
 
 
   const annonce=useSelector((state)=>state.annonce.annonce)
-  console.log(annonce,'fromhome')
 
 
 

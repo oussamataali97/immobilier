@@ -10,7 +10,6 @@ import { CiRuler } from "react-icons/ci";
 const LastOfffers = () => {
 
   const annonce=useSelector((state)=>state.annonce.annonce)
-  console.log(annonce,'fromhome')
 
   return (
     <div className='contain px-6 md:mt-16'>

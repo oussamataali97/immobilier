@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { Hourglass } from 'react-loader-spinner'
 
-import { getAnnonces } from '../Redux/annonceSlice/AnnonceSlice';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { AiFillDelete } from 'react-icons/ai';
@@ -22,7 +22,6 @@ const AnnoncesPage = () => {
   },[])
 
   const id=JSON.parse(window.localStorage.getItem('user'))
-  console.log(id)
 
   useEffect(()=>{
 
@@ -36,7 +35,6 @@ const unsubscribe = onSnapshot(q,(querySnapshot) => {
 const list = [];
 querySnapshot.forEach((doc) => {
   list.push({id:doc.id,...doc.data()})
-  console.log(doc)
 });
 dispatch(getUserAnnonces(list))
 
@@ -50,10 +48,30 @@ return ()=>{
 
 ,[])
   const annonce=useSelector((state)=>state.annonce.userAnnonces)
+  const isLoading=useSelector((state)=>state.annonce.isLoading)
+
+
 
 const handleDelete =async(id)=>{
-
   await deleteDoc(doc(db, "annonces", id));
+}
+
+
+if(isLoading){
+  return (
+    <div className="flex justify-center items-center h-[200px]">
+<Hourglass
+  visible={true}
+  height="80"
+  width="80"
+  ariaLabel="hourglass-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  colors={['#ebbb2a', '#f7db86']}
+/>
+
+    </div>
+  )
 }
 
   return (
@@ -65,18 +83,18 @@ const handleDelete =async(id)=>{
     {annonce ?   annonce?.map(d=>(
 
 <div key={d.id} className="flex flex-col justify-between border lg:min-w-[250px] ">
-<img src={d.photoURL} alt="" />
+<img src={d.photoURL} alt="" className=' w-[350px] h-[200px] object-cover ' />
 <ul className=' p-2 border-t-[1px] my-2'>
   <li className='  text-xl font-bold '>{d.price} DH </li>
   <li className=' break-words overflow-hidden text-xs w-full text-ellipsis whitespace-nowrap '>{d.title}</li>
 </ul>
-<ul className=' p-2 mb-2 md:flex justify-between items-center hidden'>
-  <li className='border-r-[1px] pr-3 text-gray-600 text-xs'>Bon Etat</li>
-  <li className='text-gray-600 text-xs flex-1 pl-3'> {d.chambres} </li>
-  <li onClick={()=>handleDelete(d.id)} className='bg-red-400 md:px-2 cursor-pointer mr-2 hover:bg-red-700 ease-linear duration-200  rounded-sm text-white font-semibold py-1'><AiFillDelete/> </li>
-  <Link to={`/update/${d.id}`}> <li className='bg-yellow-400 md:px-2 cursor-pointer hover:bg-yellow-700 ease-linear duration-200  rounded-sm text-white font-semibold py-1 mr-1 '><BiEdit/> </li></Link>
+<ul className=' p-2 mb-2  flex justify-between items-center '>
+  <li className='border-r-[1px] pr-3 text-gray-600 text-xs hidden md:block'>Bon Etat</li>
+  <li className='text-gray-600 text-xs flex-1 pl-3 hidden md:block'> {d.chambres} </li>
+  <li onClick={()=>handleDelete(d.id)} className='bg-red-400 md:px-2 cursor-pointer mr-2 hover:bg-red-700 ease-linear duration-200 flex-1 items-center justify-center flex  rounded-sm text-white font-semibold py-1'><AiFillDelete/> </li>
+  <Link to={`/update/${d.id}`} className='flex-1'> <li className='flex-1 items-center justify-center flex  bg-yellow-400 md:px-2 cursor-pointer hover:bg-yellow-700 ease-linear duration-200  rounded-sm text-white font-semibold py-1 mr-1 '><BiEdit/> </li></Link>
 
-  <li className='bg-green-400 md:px-2 cursor-pointer hover:bg-green-700 ease-linear duration-200  rounded-sm text-white font-semibold py-1'><BiShowAlt/> </li>
+  <li className='bg-green-400 md:px-2 cursor-pointer hover:bg-green-700 ease-linear duration-200  rounded-sm text-white font-semibold flex-1 items-center justify-center flex py-1'><BiShowAlt/> </li>
 </ul>
 </div>
 

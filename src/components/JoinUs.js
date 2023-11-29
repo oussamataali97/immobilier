@@ -7,7 +7,7 @@ const JoinUs = () => {
 
 
       <div className="text contain">
-        <p className='md:text-2xl text-lg font-bold  mb-3'>Are you a real estate professional?</p>
+        <p className='md:text-2xl text-lg font-bold text-center md:text-left mb-3'>Are you a real estate professional?</p>
         <p className='md:font-semibold font-normal md:text-md md:max-w-[800px]'>Do not search anymore ! Join our network now and benefit from many advantages to develop your business.</p>
 
       </div>

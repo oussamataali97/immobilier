@@ -13,7 +13,6 @@ import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
 const SearchPage = () => {
   const [queryElement,setQueryElement]=useState([])
 const data=JSON.parse(window.localStorage.getItem('searchDat'))
-console.log(data,'hh')
   useEffect(()=>{
 
     window.scrollTo(0, 0);
@@ -26,7 +25,6 @@ const unsubscribe = onSnapshot(q,(querySnapshot) => {
 const queryElement = [];
 querySnapshot.forEach((doc) => {
   queryElement.push({id:doc.id,...doc.data()})
-  console.log(doc)
 });
 setQueryElement(queryElement)
 
@@ -43,16 +41,16 @@ setQueryElement(queryElement)
    ,[data])
 
 
-   console.log(queryElement,'element')
+if(queryElement.length){
   return (
     <div>
 
     <>
-            <p className='text-center text-xl text-orange-600 font-bold py-6'> {queryElement?.length ? `${ queryElement?.length } Annonce` : `${ queryElement?.length } Annonce` }  </p>
+            <p className='text-center text-xl text-orange-600 font-bold py-6'> {queryElement?.length ? `${ queryElement?.length } Annonce` : `0 annonces` }  </p>
 
 
     <div className='max-w-6xl mx-auto grid md:grid-cols-3 grid-cols-2 lg:grid-cols-4  p-3 gap-x-10 gap-y-5'>
-    {queryElement ?   queryElement?.map(d=>(
+    {queryElement?.map(d=>(
 
 <div key={d.id} className="flex flex-col justify-between border lg:min-w-[250px] ">
 <img src={d.photoURL} alt="" />
@@ -70,15 +68,22 @@ setQueryElement(queryElement)
 </ul>
 </div>
 
-        )) :
+        ))
 
-     <p>There's no annonces Yet</p>  }
 
+    }
 
     </div>
     </>
     </div>
   )
+
+}else {
+  return (
+    <p>We found no results for your search...</p>
+  )
+}
+
 }
 
 export default SearchPage

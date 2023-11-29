@@ -96,3 +96,18 @@ box-shadow: 0 5px 18px -8px rgb(0 0 0 / 80%);
    }
 
 }
+
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #dfa608;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+  }
+
+  input[type=file]::file-selector-button:hover {
+    background: #f0b153;
+  }

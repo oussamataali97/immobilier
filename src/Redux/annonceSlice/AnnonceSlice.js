@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState={
     annonce:[],
     userAnnonces:[],
+    isLoading:true,
     searchQuery:JSON.parse(window.localStorage.getItem('searchDat')) || null,
 }
 
@@ -19,6 +20,7 @@ const initialState={
       },
       getUserAnnonces:(state,action)=>{
         state.userAnnonces=action.payload
+        state.isLoading=false
       },
       searchAnnonce:(state,action)=>{
         state.searchQuery=action.payload
