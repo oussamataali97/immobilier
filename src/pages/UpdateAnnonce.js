@@ -10,6 +10,7 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
+
 const UpdateAnnonce = () => {
     const annonce=useSelector(state=>state.annonce.annonce)
     const {id}=useParams()
@@ -96,6 +97,13 @@ const UpdateAnnonce = () => {
 
       },[file])
 
+      const handleBack =()=>{
+        navigate(-1)
+
+      }
+
+
+
   return (
 
     <div className='max-w-3xl mx-auto p-5'>
@@ -159,8 +167,9 @@ const UpdateAnnonce = () => {
 
 </div>
 
-<div className="w-full flex-1">
+<div className="w-full flex justify-between gap-x-2 flex-1">
 <button type="submit" className="mt-6 lg:w-full text-white bg-green-600 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm  sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
+<button onClick={handleBack} className="mt-6 lg:w-full text-white bg-yellow-500 hover:bg-yellow-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm  sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cancel</button>
 
 </div>
 

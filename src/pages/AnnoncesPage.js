@@ -11,8 +11,11 @@ import { Link } from 'react-router-dom';
 import { getUserAnnonces } from '../Redux/annonceSlice/AnnonceSlice';
 import {  onSnapshot,query} from "firebase/firestore";
 import { collection } from "firebase/firestore";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 const AnnoncesPage = () => {
+  const MySwal = withReactContent(Swal)
 
   const dispatch=useDispatch()
 
@@ -52,8 +55,27 @@ return ()=>{
 
 
 
-const handleDelete =async(id)=>{
-  await deleteDoc(doc(db, "annonces", id));
+const handleDelete =(id)=>{
+
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+       deleteDoc(doc(db, "annonces", id));
+
+      Swal.fire({
+        title: "Deleted!",
+        text: "Your file has been deleted.",
+        icon: "success"
+      });
+    }
+  });
 }
 
 
