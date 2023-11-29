@@ -26,7 +26,7 @@ const Categories = () => {
         </div>
         <div className="flex boxsw flex-col items-center hover:shadow-2xl hover:bg-gray-100 rounded-md text-sm w-[100px] py-6 ">
           <img src={pic2} alt="" className='w-8' />
-          <p className="mt-3 font-semibold ">Houses & Cilla</p>
+          <p className="mt-3 font-semibold ">Houses & Villa</p>
         </div>
         <div className="flex boxsw flex-col items-center hover:shadow-2xl hover:bg-gray-100 rounded-md text-sm w-[100px] py-6 ">
           <img src={pic3} alt="" className='w-8' />
