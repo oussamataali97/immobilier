@@ -13,8 +13,6 @@ import { useParams } from 'react-router-dom'
 
 const UpdateAnnonce = () => {
     const annonce=useSelector(state=>state.annonce.annonce)
-    const [selectedOption, setSelectedOption] = useState('');
-
     const {id}=useParams()
     console.log(id)
     const [perc,setPerc]=useState(null)
@@ -22,10 +20,16 @@ const UpdateAnnonce = () => {
 
 
     const [oldData,setOldData]=useState([])
+    const [selectedOption, setSelectedOption]=useState('');
+
+    console.log(oldData)
+
+    console.log(selectedOption)
 
     useEffect(()=>{
        annonce?.filter(an=>an?.id == id).map(el=>{
             setOldData(el)
+            setSelectedOption(el.category)
         })
 
 
@@ -162,9 +166,9 @@ const UpdateAnnonce = () => {
 </div>
 
 <label for="countries" class="block mb-2 text-sm  text-gray-500 dark:text-white">Category</label>
-<select         onChange={e => setSelectedOption(e.target.value)}
+<select value={selectedOption}   onChange={e => setSelectedOption(e.target.value)}
  id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-  <option selected>Choose a Category</option>
+  <option >Choose a Category</option>
   <option value="Apartement">Apartement</option>
   <option value="Houses & Villa">Houses & Villa</option>
   <option value="Store & Commerce">Store & Commerce</option>
@@ -178,7 +182,7 @@ const UpdateAnnonce = () => {
 <span class=" text-sm font-medium text-gray-900 dark:text-gray-300">Booster L'annonce : </span>
 
 <label class="relative inline-flex items-center cursor-pointer ml-3">
-  <input type="checkbox" checked={enable} onClick={()=>setEnable(!enable)} class="sr-only peer" />
+  <input type="checkbox" checked={oldData?.isPremium ? !enable : enable} onClick={()=>setEnable(!enable)} class="sr-only peer" />
   <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
 </label>
 
@@ -188,11 +192,12 @@ const UpdateAnnonce = () => {
 
 <div className="w-full flex justify-between gap-x-2 flex-1">
 <button type="submit" className="mt-6 lg:w-full text-white bg-green-600 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm  sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
-<button onClick={handleBack} className="mt-6 lg:w-full text-white bg-yellow-500 hover:bg-yellow-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm  sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cancel</button>
 
 </div>
 
 </form>
+<button onClick={handleBack} className="mt-6 lg:w-full text-white bg-yellow-500 hover:bg-yellow-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm  sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cancel</button>
+
 
 </div>  )
 }
