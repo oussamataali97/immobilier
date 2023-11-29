@@ -47,7 +47,7 @@ return ()=>{
     <div className='max-w-6xl mx-auto grid md:grid-cols-3 grid-cols-2 lg:grid-cols-4  p-3 gap-x-10 gap-y-5'>
     { annonce
       .map((a,index)=>(
-<div className="flex flex-col justify-between border lg:min-w-[250px] ">
+<div key={index} className="flex flex-col justify-between border lg:min-w-[250px] ">
   <img src={a.photoURL} alt="House" className='w-64 h-40 object-cover' />
   <ul className=' p-2 border-t-[1px] my-2'>
     <li className='  text-xl font-bold '>{a?.price} MAD</li>

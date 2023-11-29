@@ -13,6 +13,8 @@ import { useParams } from 'react-router-dom'
 
 const UpdateAnnonce = () => {
     const annonce=useSelector(state=>state.annonce.annonce)
+    const [selectedOption, setSelectedOption] = useState('');
+
     const {id}=useParams()
     console.log(id)
     const [perc,setPerc]=useState(null)
@@ -40,6 +42,7 @@ const UpdateAnnonce = () => {
         await setDoc(doc(db, "annonces", id), {
           ...oldData,
           isPremium:enable,
+          category:selectedOption,
           updatedAt:serverTimestamp()
           });
           toast.success("Annonce Updated successfully ");
@@ -157,7 +160,21 @@ const UpdateAnnonce = () => {
   <input type="number" onChange={handleChange} value={oldData?.price} name="price" id="floating_Price" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
   <label for="price" className="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Price</label>
 </div>
-<div className=" flex items-center">
+
+<label for="countries" class="block mb-2 text-sm  text-gray-500 dark:text-white">Category</label>
+<select         onChange={e => setSelectedOption(e.target.value)}
+ id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <option selected>Choose a Category</option>
+  <option value="Apartement">Apartement</option>
+  <option value="Houses & Villa">Houses & Villa</option>
+  <option value="Store & Commerce">Store & Commerce</option>
+  <option value="Desk & Tray">Desk & Tray</option>
+  <option value="Land & Farmes">Land & Farmes</option>
+  <option value="Ohters">Ohters</option>
+</select>
+
+
+<div className=" flex items-center mt-4">
 <span class=" text-sm font-medium text-gray-900 dark:text-gray-300">Booster L'annonce : </span>
 
 <label class="relative inline-flex items-center cursor-pointer ml-3">
@@ -166,6 +183,8 @@ const UpdateAnnonce = () => {
 </label>
 
 </div>
+
+
 
 <div className="w-full flex justify-between gap-x-2 flex-1">
 <button type="submit" className="mt-6 lg:w-full text-white bg-green-600 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm  sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
